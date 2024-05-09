@@ -1,0 +1,23 @@
+<div class="login-page">
+    <div class="form">
+      <form class="login-form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <input type="text" placeholder="CIN" [(ngModel)]="newUser.cin" name="cin">
+        <input type="email" placeholder="Email" [(ngModel)]="newUser.email" name="email">
+        <input type="text" placeholder="Username" [(ngModel)]="newUser.name" name="username">
+        <input type="date" placeholder="Date de Naissance" [(ngModel)]="newUser.datenais" name="datenaissance">
+        <input type="text" placeholder="Lieu de Naissance" [(ngModel)]="newUser.lieunais" name="lieunaissance">
+        <input type="password" placeholder="Password" [(ngModel)]="newUser.password" name="password">
+        <input type="password" placeholder="Please confirm your password" name="Confirmingpassword">
+        <input type="file" (change)="onFileSelected($event)" name="img">
+        
+        <div [hidden]="captcha">
+          <re-captcha (resolved)="resolved($event!)" siteKey="6LcL08UpAAAAACqIwpE_30W9BzvlXvlc0QJbyX89"></re-captcha>
+        </div>
+        <div [hidden]="!captcha">
+          <button type="submit" class="btn btn-success">Sign-Up</button>
+        </div>
+        <p class="signup"><a href="/login">Already have an account?</a></p>
+      </form>
+    </div>
+  </div>
+  
